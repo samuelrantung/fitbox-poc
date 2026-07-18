@@ -145,7 +145,7 @@ function renderStep() {
 
   // Calculate Progress Fill percentage
   const totalSteps = 5;
-  const progressPercent = ((state.currentStep - 1) / (totalSteps - 1)) * 100;
+  const progressPercent = Math.min(((state.currentStep - 1) / (totalSteps - 1)) * 100, 100);
   const fillBar = document.getElementById('progress-bar-fill');
   if (fillBar) {
     fillBar.style.width = `${progressPercent}%`;
