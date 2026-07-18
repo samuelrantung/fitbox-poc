@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulai Langganan — FitBox Manado</title>
+  <meta name="description" content="Daftar langganan katering sehat FitBox Manado. Isi formulir wizard 5 langkah kami untuk memilih menu, jadwal kirim, dan tujuan kesehatan.">
+  <link rel="icon" href="logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Navbar (Branded) -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand">
+        <img src="logo.jpeg" alt="FitBox Manado Logo" class="brand-logo">
+        <span class="brand-text">FitBox <span>Manado</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Beranda</a></li>
+        <li><a href="index.html#cara-kerja" class="nav-link">Cara Kerja</a></li>
+        <li><a href="index.html#menu" class="nav-link">Menu</a></li>
+        <li><a href="index.html#harga" class="nav-link">Harga</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Wizard Wrapper -->
+  <main class="wizard-page" id="order-wizard-root">
+    <div class="container" style="flex-grow: 1; max-width: 1000px; display: flex; flex-direction: column; justify-content: center;">
+      
+      <!-- Progress Bar Tracker -->
+      <div class="progress-tracker">
+        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        
+        <div class="progress-step active" data-step="1">
+          <div class="step-indicator">1</div>
+          <span class="step-label">Paket</span>
+        </div>
+        
+        <div class="progress-step" data-step="2">
+          <div class="step-indicator">2</div>
+          <span class="step-label">Tujuan</span>
+        </div>
+        
+        <div class="progress-step" data-step="3">
+          <div class="step-indicator">3</div>
+          <span class="step-label">Menu Besok</span>
+        </div>
+        
+        <div class="progress-step" data-step="4">
+          <div class="step-indicator">4</div>
+          <span class="step-label">Pengiriman</span>
+        </div>
+        
+        <div class="progress-step" data-step="5">
+          <div class="step-indicator">5</div>
+          <span class="step-label">Data Diri</span>
+        </div>
+      </div>
+
+      <!-- Main Wizard Card Container -->
+      <div class="wizard-card">
+        
+        <!-- ==================== STEP 1: PILIH PAKET ==================== -->
+        <div class="wizard-step-panel active" id="step-1">
+          <h2 class="wizard-title">Pilih Paket Langganan</h2>
+          <p class="wizard-subtitle">Silakan pilih jangka waktu katering sehat yang paling sesuai untuk Anda.</p>
+          
+          <div class="options-grid">
+            <!-- Paket Mingguan Card -->
+            <label class="option-card" for="plan-mingguan">
+              <input type="radio" id="plan-mingguan" name="plan-option" value="mingguan">
+              <h3 class="option-card-title">Paket Mingguan</h3>
+              <p class="option-card-desc">10 porsi makan (makan siang + makan malam) selama 5 hari kerja (Senin - Jumat).</p>
+              <div class="option-card-price">Rp400.000 <span style="font-size: 0.8rem; font-weight: 500; font-family: var(--font-sans); color: var(--color-text-muted);">/ minggu</span></div>
+            </label>
+            
+            <!-- Paket Bulanan Card -->
+            <label class="option-card" for="plan-bulanan">
+              <input type="radio" id="plan-bulanan" name="plan-option" value="bulanan">
+              <span class="option-badge">Hemat 10%</span>
+              <h3 class="option-card-title">Paket Bulanan</h3>
+              <p class="option-card-desc">40 porsi makan (makan siang + makan malam) selama 20 hari kerja (Senin - Jumat).</p>
+              <div class="option-card-price">Rp1.440.000 <span style="font-size: 0.8rem; font-weight: 500; font-family: var(--font-sans); color: var(--color-text-muted);">/ bulan</span></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- ==================== STEP 2: TUJUAN & AKTIVITAS ==================== -->
+        <div class="wizard-step-panel" id="step-2">
+          <h2 class="wizard-title">Tujuan Kesehatan Anda</h2>
+          <p class="wizard-subtitle">Kurasi menu kami disesuaikan untuk membantu mencapai berat badan ideal Anda.</p>
+          
+          <div class="options-grid">
+            <!-- Goal 1 -->
+            <label class="option-card" for="goal-diet">
+              <input type="radio" id="goal-diet" name="goal-option" value="diet">
+              <h3 class="option-card-title">⚖️ Turun Berat Badan</h3>
+              <p class="option-card-desc">Porsi defisit kalori sehat terkontrol, dirancang khusus memangkas lemak tubuh.</p>
+            </label>
+            
+            <!-- Goal 2 -->
+            <label class="option-card" for="goal-olahraga">
+              <input type="radio" id="goal-olahraga" name="goal-option" value="olahraga">
+              <h3 class="option-card-title">💪 Olahraga & Otot</h3>
+              <p class="option-card-desc">Asupan makro dengan protein tinggi untuk pertumbuhan massa otot & kebugaran.</p>
+            </label>
+            
+            <!-- Goal 3 -->
+            <label class="option-card" for="goal-maintenance">
+              <input type="radio" id="goal-maintenance" name="goal-option" value="maintenance">
+              <h3 class="option-card-title">🥗 Hidup Sehat</h3>
+              <p class="option-card-desc">Porsi kalori seimbang dan nutrisi harian komplit untuk menjaga kebugaran tubuh.</p>
+            </label>
+            
+            <!-- Goal 4 -->
+            <label class="option-card" for="goal-khusus">
+              <input type="radio" id="goal-khusus" name="goal-option" value="khusus">
+              <h3 class="option-card-title">🩺 Kebutuhan Khusus</h3>
+              <p class="option-card-desc">Rencana makan khusus dengan pembatasan alergi tertentu atau anjuran diet medis.</p>
+            </label>
+          </div>
+        </div>
+
+        <!-- ==================== STEP 3: PILIH MENU BESOK ==================== -->
+        <div class="wizard-step-panel" id="step-3">
+          <h2 class="wizard-title">Pilih Menu untuk Hari Pertama</h2>
+          <p class="wizard-subtitle">Silakan pilih 1 menu Makan Siang dan 1 menu Makan Malam untuk memulai program katering Anda.</p>
+          
+          <div class="info-banner">
+            <span class="info-banner-icon">🕒</span>
+            <span>Pemesanan & perubahan menu esok hari ditutup <strong>H-1 pukul 18.00 WITA</strong>. Untuk tanggal: <strong id="tomorrow-date-label"></strong></span>
+          </div>
+
+          <div class="meal-selector-grid">
+            <!-- Lunch Column -->
+            <div class="meal-selector-column">
+              <div class="meal-column-title">🍱 Makan Siang (Lunch)</div>
+              
+              <div class="meal-option-item" data-type="lunch" data-meal="tinutuan">
+                <div class="meal-option-icon">🥣</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Tinutuan Power Bowl</div>
+                  <div class="meal-option-meta">±320 kkal &bull; Protein 14g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="lunch" data-meal="woku">
+                <div class="meal-option-icon">🐟</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Ikan Woku Panggang</div>
+                  <div class="meal-option-meta">±450 kkal &bull; Protein 35g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="lunch" data-meal="gohu">
+                <div class="meal-option-icon">🥗</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Gohu Fresh Salad</div>
+                  <div class="meal-option-meta">±280 kkal &bull; Protein 8g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="lunch" data-meal="rica">
+                <div class="meal-option-icon">🍗</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Ayam Rica Tanpa Minyak</div>
+                  <div class="meal-option-meta">±420 kkal &bull; Protein 38g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="lunch" data-meal="cakalang">
+                <div class="meal-option-icon">🍚</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Cakalang Fufu Bowl</div>
+                  <div class="meal-option-meta">±480 kkal &bull; Protein 40g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="lunch" data-meal="garo">
+                <div class="meal-option-icon">🥬</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Sayur Garo + Tahu Panggang</div>
+                  <div class="meal-option-meta">±300 kkal &bull; Protein 18g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+            </div>
+
+            <!-- Dinner Column -->
+            <div class="meal-selector-column">
+              <div class="meal-column-title">🍽️ Makan Malam (Dinner)</div>
+
+              <div class="meal-option-item" data-type="dinner" data-meal="tinutuan">
+                <div class="meal-option-icon">🥣</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Tinutuan Power Bowl</div>
+                  <div class="meal-option-meta">±320 kkal &bull; Protein 14g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="dinner" data-meal="woku">
+                <div class="meal-option-icon">🐟</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Ikan Woku Panggang</div>
+                  <div class="meal-option-meta">±450 kkal &bull; Protein 35g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="dinner" data-meal="gohu">
+                <div class="meal-option-icon">🥗</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Gohu Fresh Salad</div>
+                  <div class="meal-option-meta">±280 kkal &bull; Protein 8g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="dinner" data-meal="rica">
+                <div class="meal-option-icon">🍗</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Ayam Rica Tanpa Minyak</div>
+                  <div class="meal-option-meta">±420 kkal &bull; Protein 38g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="dinner" data-meal="cakalang">
+                <div class="meal-option-icon">🍚</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Cakalang Fufu Bowl</div>
+                  <div class="meal-option-meta">±480 kkal &bull; Protein 40g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+
+              <div class="meal-option-item" data-type="dinner" data-meal="garo">
+                <div class="meal-option-icon">🥬</div>
+                <div class="meal-option-details">
+                  <div class="meal-option-name">Sayur Garo + Tahu Panggang</div>
+                  <div class="meal-option-meta">±300 kkal &bull; Protein 18g</div>
+                </div>
+                <div class="meal-checkbox"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== STEP 4: METODE PENGIRIMAN ==================== -->
+        <div class="wizard-step-panel" id="step-4">
+          <h2 class="wizard-title">Metode Pengiriman</h2>
+          <p class="wizard-subtitle">Pilih opsi pengiriman yang paling mudah untuk Anda jangkau di Manado.</p>
+          
+          <div class="options-grid">
+            <!-- Option 1: Delivery -->
+            <label class="option-card" for="del-delivery">
+              <input type="radio" id="del-delivery" name="delivery-option" value="delivery">
+              <span class="option-badge">Rekomendasi</span>
+              <h3 class="option-card-title">🚚 Hot Delivery</h3>
+              <p class="option-card-desc">Makanan diantar hangat dalam mobil khusus ber-microwave langsung ke alamat Anda.</p>
+            </label>
+            
+            <!-- Option 2: Pickup -->
+            <label class="option-card" for="del-pickup">
+              <input type="radio" id="del-pickup" name="delivery-option" value="pickup">
+              <h3 class="option-card-title">🛍️ Ambil Sendiri (Pickup)</h3>
+              <p class="option-card-desc">Ambil pesanan makanan Anda di dapur pusat kami di pusat kota Manado.</p>
+              <div class="option-card-price" style="font-size: 1.1rem; color: var(--color-primary-medium);">Gratis Ongkir</div>
+            </label>
+          </div>
+
+          <!-- Dynamic Address Input -->
+          <div class="address-input-wrapper" id="address-input-wrapper">
+            <div class="form-group">
+              <label for="address-text">Alamat Pengiriman Lengkap (Manado Kota) *</label>
+              <textarea id="address-text" class="form-control" rows="4" placeholder="Tuliskan nama jalan, nomor rumah, kelurahan/kecamatan, patokan terdekat..."></textarea>
+            </div>
+          </div>
+
+          <!-- Dynamic Pickup Box -->
+          <div class="pickup-info-box" id="pickup-info-box">
+            <div class="pickup-title">📍 Alamat Dapur FitBox Manado</div>
+            <div class="pickup-address">
+              Jl. Pierre Tendean No. 12, Sario, Manado (Depan Manado Town Square).<br>
+              Pengambilan makan siang tersedia mulai jam 11:00 WITA, makan malam mulai jam 17:00 WITA.
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== STEP 5: DATA DIRI & TARGET ==================== -->
+        <div class="wizard-step-panel" id="step-5">
+          <h2 class="wizard-title">Lengkapi Data Diri</h2>
+          <p class="wizard-subtitle">Isi data kontak Anda untuk melakukan verifikasi pesanan lewat WhatsApp.</p>
+          
+          <div class="form-wizard-container">
+            <div class="form-group">
+              <label for="input-nama">Nama Lengkap *</label>
+              <input type="text" id="input-nama" class="form-control" placeholder="Nama Anda..." required>
+            </div>
+
+            <div class="form-group">
+              <label for="input-wa">Nomor WhatsApp *</label>
+              <input type="tel" id="input-wa" class="form-control" placeholder="Contoh: 081234567890..." required>
+            </div>
+
+            <!-- Optional Field Toggle Drawer -->
+            <button type="button" class="optional-toggle-btn" id="optional-toggle-btn">
+              Lengkapi Informasi Opsional (Untuk Riset & Nutrisi) &plus;
+            </button>
+
+            <!-- Optional Fields Container -->
+            <div class="optional-section" id="optional-section">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="input-usia">Usia (Tahun)</label>
+                  <input type="number" id="input-usia" class="form-control" placeholder="Usia Anda...">
+                </div>
+                <div class="form-group">
+                  <label for="input-berat">Berat Badan (kg)</label>
+                  <input type="number" id="input-berat" class="form-control" placeholder="Berat...">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="input-tinggi">Tinggi Badan (cm)</label>
+                  <input type="number" id="input-tinggi" class="form-control" placeholder="Tinggi...">
+                </div>
+                <div class="form-group">
+                  <label for="input-target-berat">Target Berat Badan (kg)</label>
+                  <input type="number" id="input-target-berat" class="form-control" placeholder="Target...">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="input-alergi">Alergi atau Pantangan Makanan</label>
+                <input type="text" id="input-alergi" class="form-control" placeholder="Contoh: Seafood, kacang, telur...">
+              </div>
+
+              <div class="form-group">
+                <label for="input-aktivitas">Tingkat Aktivitas Harian</label>
+                <select id="input-aktivitas" class="form-control">
+                  <option value="">-- Pilih Aktivitas --</option>
+                  <option value="low">Ringan (Jarang olahraga / pekerja kantoran duduk)</option>
+                  <option value="medium">Sedang (Olahraga ringan 2-3 kali seminggu)</option>
+                  <option value="high">Tinggi (Aktif berolahraga/atlet/pekerja fisik)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== STEP 6: RECAP & CONFIRMATION ==================== -->
+        <div class="wizard-step-panel" id="step-6">
+          <h2 class="wizard-title">Konfirmasi Pemesanan</h2>
+          <p class="wizard-subtitle">Periksa kembali detail pesanan Anda sebelum mengonfirmasi melalui WhatsApp.</p>
+          
+          <div class="recap-container">
+            <div class="recap-header">
+              <span class="recap-header-title" id="recap-plan">Paket Katering</span>
+              <span class="recap-price" id="recap-total-price">Rp0</span>
+            </div>
+            
+            <div class="recap-body">
+              <!-- Recap Row 1: Target -->
+              <div class="recap-section">
+                <div class="recap-section-title">Tujuan Rencana Makan</div>
+                <div class="recap-section-value" id="recap-goal">-</div>
+              </div>
+
+              <!-- Recap Row 2: Menu Besok -->
+              <div class="recap-section">
+                <div class="recap-section-title">Menu Hari Pertama (<span id="recap-tomorrow-date"></span>)</div>
+                <ul class="recap-meals-list" id="recap-meals-list">
+                  <!-- JS dynamically populated -->
+                </ul>
+              </div>
+
+              <!-- Recap Row 3: Shipping -->
+              <div class="recap-section">
+                <div class="recap-section-title">Opsi Pengiriman</div>
+                <div class="recap-section-value" id="recap-delivery-val">-</div>
+                <div class="recap-section-subtext" id="recap-delivery-sub">-</div>
+              </div>
+
+              <!-- Recap Row 4: Personal Info -->
+              <div class="recap-section">
+                <div class="recap-section-title">Detail Kontak Anda</div>
+                <div class="recap-section-value">
+                  <span id="recap-name"></span> (<span id="recap-whatsapp"></span>)
+                </div>
+              </div>
+
+              <!-- Recap Row 5: Optional (conditional display) -->
+              <div class="recap-section" id="recap-optional-section" style="display: none;">
+                <div class="recap-section-title">Informasi Fisik Opsional</div>
+                <ul style="padding-left: 1.25rem; font-size: 0.9rem; color: var(--color-text-muted);" id="recap-optional-container">
+                  <!-- JS dynamically populated -->
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="confirmation-actions">
+            <!-- Real WhatsApp redirect anchor -->
+            <a href="#" id="btn-whatsapp" target="_blank" class="btn btn-whatsapp">
+              💬 Konfirmasi via WhatsApp
+            </a>
+            
+            <p class="confirmation-note">
+              * Pembayaran dan aktivasi langganan akan diselesaikan secara manual melalui obrolan dengan admin WhatsApp kami.
+            </p>
+
+            <a href="#" id="btn-reset" class="btn btn-outline" style="margin-top: 1rem;">
+              Kembali ke Beranda
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation buttons (Hidden on Step 6) -->
+        <div class="wizard-nav" id="wizard-nav">
+          <button type="button" class="btn btn-outline" id="btn-back">Kembali</button>
+          <button type="button" class="btn btn-dark" id="btn-next" disabled>Lanjut</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
